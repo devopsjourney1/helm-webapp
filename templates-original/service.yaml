@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mywebapp
+  namespace: default
+  labels:
+    app: mywebapp
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    name: flask
+  selector:
+    app: mywebapp
+    tier: frontend
+  type: NodePort
