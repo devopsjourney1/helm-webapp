@@ -28,7 +28,7 @@ spec:
         resources:
           requests:
             memory: "16Mi" 
-            cpu: "50m"    # 500milliCPUs (1/2 CPU)
+            cpu: "50m"    # 50 milli cores (1/20 CPU)
           limits:
-            memory: "128Mi"
+            memory: "128Mi" # 128 mebibytes 
             cpu: "100m"
