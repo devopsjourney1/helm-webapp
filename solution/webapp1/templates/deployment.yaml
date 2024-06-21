@@ -16,6 +16,11 @@ spec:
       labels:
         app: {{ .Values.appName }}
         tier: frontend
+      annotations:
+        # To force pod recreation on every upgrade, 
+        # you can add annotations or checksums to the pod template that change on each upgrade.
+        rollme: {{ randAlphaNum 5 | quote }}    
+    
     spec: # Pod spec
       containers:
       - name: mycontainer

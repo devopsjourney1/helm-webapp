@@ -16,7 +16,7 @@ helm install mywebapp-release webapp1/ --values webapp1/values.yaml
 
 # Upgrade after templating
 ```
-helm upgrade mywebapp-release webapp1/ --values mywebapp/values.yaml
+helm upgrade mywebapp-release webapp1/ --values webapp1/values.yaml
 ```
 
 # Accessing it
