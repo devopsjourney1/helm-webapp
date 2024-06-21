@@ -21,14 +21,14 @@ helm upgrade mywebapp-release webapp1/ --values webapp1/values.yaml
 
 # Accessing it
 ```
-minikube tunnel
+minikube service myhelmapp
 ```
 
 # Create dev/prod
 ```
-k create namespace dev
-k create namespace prod
-helm install mywebapp-release-dev webapp1/ --values webapp1/values.yaml -f webapp1/values-dev.yaml -n dev
+kubectl create namespace dev
+kubectl create namespace prod
+helm install mywebapp-release-dev webapp1/  --values webapp1/values.yaml -f webapp1/values-dev.yaml -n dev
 helm install mywebapp-release-prod webapp1/ --values webapp1/values.yaml -f webapp1/values-prod.yaml -n prod
 helm ls --all-namespaces
 ```
