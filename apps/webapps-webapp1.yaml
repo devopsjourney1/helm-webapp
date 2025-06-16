@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: datahub-prerequisites
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/rowdenb/helm-webapp.git
+    targetRevision: main
+    path: charts/webapp1
+    helm:
+      valueFiles:
+        - values.yaml  # or values/dev.yaml etc. if using environments
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: webappns
+  syncPolicy:
+    automated:
+      selfHeal: false
+      prune: false
+    syncOptions:
+      - CreateNamespace=true
+  syncWave: "0"

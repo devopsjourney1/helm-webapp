@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: datahub
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://git.datalab.thsd.health.qld.gov.au/repo.git
+    targetRevision: main
+    path: charts/webapp2
+    helm:
+      valueFiles:
+        - values.yaml  # or values/dev.yaml if using per-environment overrides
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: webappns
+  syncPolicy:
+    automated:
+      selfHeal: false
+      prune: false
+    syncOptions:
+      - CreateNamespace=true
+  syncWave: "1"

@@ -1,0 +1,8 @@
+namespace: dev
+
+configmap:
+  data: 
+    CUSTOM_HEADER: "Welcome to DEV"
+
+spec:
+  replicas: 2

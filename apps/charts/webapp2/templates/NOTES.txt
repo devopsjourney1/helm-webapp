@@ -1,0 +1,4 @@
+# Accessing it
+```
+minikube tunnel {{ .Values.namespace }}
+```
